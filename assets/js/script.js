@@ -11,7 +11,7 @@ let quizScore = document.querySelector('.quiz-score');
 let checkBoxes = document.querySelectorAll('input[type=checkbox]');
 let restartQuizBtn = document.querySelector('.restart-btn');
 let scoresContainer = document.querySelector('.scores-list');
-let scoresLinkContainer = document.querySelector('.scores-link');
+let scoresLinkContainer = document.querySelector('.scores-container');
 
 let optionElementA = document.querySelector('#optionA');
 let optionElementB = document.querySelector('#optionB');
@@ -20,14 +20,16 @@ let optionElementD = document.querySelector('#optionD');
 
 let questionIndex = 0;
 let timeLeft = 120;
-let width = 500;
+let width = 600;
 let TIMER;
 let score = 0;
 let initials;
 
+// local storage
 let records = [];
 let user = {};
 
+// start timer
 function startTimer() {
     TIMER = setInterval(() => {
         timeLeft--;
@@ -43,13 +45,15 @@ function startTimer() {
     }, 1000)
 };
 
+// stops timer and presents points received
 function stopTimer() {
     clearInterval(TIMER);
     setScore();
     quizScoreContainer.style.display = 'block';
-    quizScoreContainer.textContent = `You had ${score} of ${quizQuestions.length} correct.`
+    quizScore.textContent = `You had ${score} of ${quizQuestions.length} correct.`
 };
 
+// saves initials and score to local storage
 function setScore() {
     initials = prompt('Finished! Enter your initials to save your score.');
     user.name = initials;
@@ -60,8 +64,19 @@ function setScore() {
     }
 };
 
+// collects scores
+function getScores() {
+    let recordCollect = JSON.parse(localStorage.getItem('records'));
+    if (recordCollect) {
+        for (let record of recordCollect) {
+            records.push(record);
+        }
+    }
+};
+
+// randomizes question order
 function shuffleQuestions() {
-    quizQuestions.ariaSort(function () {
+    quizQuestions.sort(function () {
         return 0.5 - Math.random();
     })
 };
@@ -75,9 +90,11 @@ optionElementB.textContent = quizQuestions[questionIndex].optionB;
 optionElementC.textContent = quizQuestions[questionIndex].optionC;
 optionElementD.textContent = quizQuestions[questionIndex].optionD;
 
+// event listeners
 startQuizBtn.addEventListener('click', startQuiz);
 restartQuizBtn.addEventListener('click', restartQuiz);
 
+// if statement to go through each question
 function nextQuestion() {
     for (let checkbox of checkBoxes) {
         if (questionIndex < quizQuestions.length - 1 && checkbox.checked) {
@@ -93,9 +110,9 @@ function nextQuestion() {
     optionElementD.textContent = quizQuestions[questionIndex].optionD;
 };
 
+//  calls functions from start button
 function startQuiz() {
     startTimer();
-    console.log('timer start')
     disableCheckboxes();
     checkAnswers();
     getScores();
@@ -105,10 +122,12 @@ function startQuiz() {
     timerContainer.style.display = 'block';
 };
 
+// reloads page
 function restartQuiz() {
     document.location.reload();
 }
 
+// resets the checkboxes for restarting the quiz
 function resetQuestions() {
     for (let checkbox of checkboxes) {
         checkbox.checked = false;
@@ -119,6 +138,7 @@ function resetQuestions() {
     feedback.classList.remove('correct', 'wrong');
 };
 
+// disabled checkboxes after being clicked
 function disableCheckboxes() {
     for (let checkbox of checkBoxes) {
         checkbox.addEventListener('click', (e) => {
@@ -135,6 +155,7 @@ function disableCheckboxes() {
     }
 };
 
+// checks to see if selection is correct or incorrect
 function checkAnswers() {
     for (i = 0; i < checkboxes.length; i++) {
         checkboxes[i].addEventListener('click', (e) => {

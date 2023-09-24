@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Code Quiz!</title>
 </head>
@@ -13,17 +14,15 @@
     </header> -->
 
     <div class="main-container">
-        <div class="options-container">
 
-            <div class="start-link">
-                <button class="btn start-quiz-btn">Start!</a>
+            <div class="start-container">
+                <button class="btn start-quiz-btn">Start!</button>
+                <p class="quiz-instructions">Welcome to the code quiz! Test your knowledge of HTML, CSS, and Javascript. You will have 120 seconds to finish.</p>
             </div>
 
             <div class="scores-link">
-                <button class="btn scores-list">High Scores</a>
+                <button class="btn scores-list" href="scores.html">High Scores</a>
             </div>
-
-        </div>
 
         <div class="quiz-container">
             <div class="quiz-timer">
@@ -35,22 +34,22 @@
             <ul>
                 <li>
                     <label class="checkbox">
-                        <input type="checkbox"><span id="optionA" class="optionA" data-value="1">Option A</span>
+                        <input type="checkbox"><span id="optionA" class="answers" data-value="optionA">Option A</span>
                     </label>
                 </li>
                 <li>
                     <label class="checkbox">
-                        <input type="checkbox"><span id="optionB" class="optionB" data-value="2">Option B</span>
+                        <input type="checkbox"><span id="optionB" class="answers" data-value="optionB">Option B</span>
                     </label>
                 </li>
                 <li>
                     <label class="checkbox">
-                        <input type="checkbox"><span id="optionC" class="optionC" data-value="3">Option C</span>
+                        <input type="checkbox"><span id="optionC" class="answers" data-value="optionC">Option C</span>
                     </label>
                 </li>
                 <li>
                     <label class="checkbox">
-                        <input type="checkbox"><span id="optionD" class="optionD" data-value="4">Option D</span>
+                        <input type="checkbox"><span id="optionD" class="answers" data-value="optionD">Option D</span>
                     </label>
                 </li>
             </ul>
@@ -64,8 +63,8 @@
 
     </div>
     </main>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/questions.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/questions.js"></script>
 </body>
 
 </html>
