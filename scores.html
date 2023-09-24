@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Code Quiz!</title>
+</head>
+
+<body>
+
+    <div class="main-container">
+        <div class="scores-container">
+            <h2>Recent Scores</h2>
+            <ul class="scores-list"></ul>
+        </div>
+
+        <div class="quiz-container">
+            <h2>Code Quiz!</h2>
+            <h2 class="quiz-question">Question Here</h2>
+            <ul>
+                <li>
+                    <label class="checkbox">
+                        <input type="checkbox"><span id="optionA" class="optionA" data-value="1">Option A</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="checkbox">
+                        <input type="checkbox"><span id="optionB" class="optionB" data-value="2">Option B</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="checkbox">
+                        <input type="checkbox"><span id="optionC" class="optionC" data-value="3">Option C</span>
+                    </label>
+                </li>
+                <li>
+                    <label class="checkbox">
+                        <input type="checkbox"><span id="optionD" class="optionD" data-value="4">Option D</span>
+                    </label>
+                </li>
+            </ul>
+
+            <button class="btn next-question">Next Question</button>
+
+            <p class="feedback"></p>
+        </div>
+
+        <button class="btn quiz-start-btn" style="display: none;">Start Quiz</button>
+        <button class="btn restart-btn" style="display: none;">Retake Quiz</button>
+
+        <div class="back-to-quiz-container">
+            <a herf="index.html" class="btn">Back to quiz</a>
+        </div>
+    </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        function displayScores() {
+            getScores();
+            for (let record of records) {
+
+                let li = document.createElement('li');
+                li.textContent = `${record.name} - ${record.finalScore} out 5`;
+                scoresContainer.appendChild(li);
+            }
+        }
+
+        displayScores();
+    </script>
+</body>
+
+</html>
