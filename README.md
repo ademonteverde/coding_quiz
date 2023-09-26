@@ -39,11 +39,21 @@ This Coding Quiz is a web-based application that tests your knowledge of coding 
 - JavaScript
 - Local Storage
 
-## Demo
+## Assets
+The following image demonstrates the web application's appearance and functionality:
+![Example of coding quiz](./assets/images/coding_quiz_demo.png)
 
-Click here for the live demo
+![Example of finished coding quiz](./assets/images/coding_quiz_demo_complete.png)
+
+## Link to GitHub Repository:
+
+[https://github.com/ademonteverde/coding_quiz](https://github.com/ademonteverde/coding_quiz)
+
+## Link to deployed application:
+
+[https://ademonteverde.github.io/coding_quiz/](https://ademonteverde.github.io/coding_quiz/)
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT](https://github.com/ademonteverde/coding_quiz/blob/main/LICENSE) License.
 
