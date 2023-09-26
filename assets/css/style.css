@@ -1,7 +1,7 @@
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
-	background-color: #C3F7CE;
+	background-color: #1B1B32;
 	color: #1C2D21;
 }
 
@@ -25,6 +25,7 @@ label {
 li {
 	padding: 12px;
 	position: relative;
+	list-style-type: none;
 }
 
 h1 {
@@ -52,7 +53,8 @@ h1 {
 	display: none;
 	max-width: 800px;
 	padding: 40px;
-	margin: 40px auto;
+	margin: 60px auto;
+	margin-bottom: 40px;
 	background-color: #ffffff;
 	border-radius: 10px;
 	box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.4);
@@ -60,7 +62,8 @@ h1 {
 
 .timer {
 	height: 2px;
-	padding-bottom: 5px;
+	padding-bottom: 20px;
+	text-align: right;
 }
 
 .quiz-score-container {
@@ -130,6 +133,7 @@ input {
 input:checked {
 	background-color: #ff5161;
 	border: none;
+	content: '';
 }
 
 input:checked::before {
@@ -141,6 +145,18 @@ input:checked::before {
 	left: 1rem;
 	top: 0.5rem;
 	cursor: pointer;
+	content: '';
+}
+
+input.correct:checked {
+    background-color: #4bd695; /* Green color */
+    border: none;
+}
+
+/* Style for wrong answer */
+input.wrong:checked {
+    background-color: #ec4141; /* Red color */
+    border: none;
 }
 
 .btn {
@@ -151,7 +167,7 @@ input:checked::before {
 	margin: 10px;
 	padding: 10px 15px;
 	border-radius: 3px;
-	background-color: #1C2D21;
+	background-color: #0A0A23;
 }
 
 .btn:hover {
@@ -168,4 +184,13 @@ input:checked::before {
 	padding: 15px;
 	color: #ffffff;
 	background-color: #ec4141;
+}
+
+.parent-container {
+    display: flex;
+	justify-content: space-between;
+}
+
+.quiz-timer {
+    text-align: right;
 }

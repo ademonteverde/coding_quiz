@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Code Quiz!</title>
+    <title>Coding Quiz!</title>
 </head>
 
 <body>
@@ -43,19 +43,17 @@
                 </li>
             </ul>
 
-            <button class="btn next-question">Next Question</button>
-
             <p class="feedback"></p>
         </div>
 
-        <button class="btn start-quiz-btn" style="display: none;">Start Quiz</button>
+        <button class="btn quiz-start-btn" style="display: none;">Start Quiz</button>
         <button class="btn restart-btn" style="display: none;">Retake Quiz</button>
 
         <div class="back-to-quiz-container">
-            <a herf="index.html" class="btn">Back to quiz</a>
+            <a href="index.html" class="btn">Back to quiz</a>
         </div>
     </div>
-    </main>
+
     <script src="assets/js/script.js"></script>
     <script>
         function displayScores() {
@@ -63,7 +61,7 @@
             for (let record of records) {
 
                 let li = document.createElement('li');
-                li.textContent = `${record.name} - ${record.finalScore} out 5`;
+                li.textContent = `${record.name} - ${record.finalScore} out 10`;
                 scoresContainer.appendChild(li);
             }
         }
